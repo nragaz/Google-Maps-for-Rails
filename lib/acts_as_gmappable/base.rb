@@ -27,7 +27,11 @@ module Gmaps4rails
   end
   
   def Gmaps4rails.sidebar(object)
-    return "\"sidebar\": \"#{object.gmaps4rails_sidebar}\"," if object.respond_to?("gmaps4rails_sidebar")
+    sidebar = object.respond_to?("gmaps4rails_sidebar") ?
+      "\"sidebar\": \"#{object.gmaps4rails_sidebar}\"," : nil
+    sidebar_id = object.respond_to?("gmaps4rails_sidebar_id") ?
+      "\"sidebar_id\": \"#{object.gmaps4rails_sidebar_id}\"," : nil
+    return "#{sidebar}#{sidebar_id}"
   end
   
   def Gmaps4rails.picture(object)
