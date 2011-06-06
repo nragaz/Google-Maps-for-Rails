@@ -586,6 +586,7 @@ var Gmaps4Rails = {
 			var li = document.createElement('li');
 	    var aSel = document.createElement('a');
 	    aSel.href = 'javascript:void(0);';
+	    aSel.id = this.exists(marker_container.sidebar_id) ? marker_container.sidebar_id : "";
 	    var html = this.exists(marker_container.sidebar) ? marker_container.sidebar : "Marker";
 	    aSel.innerHTML = html;
 	    aSel.onclick = this.sidebar_element_handler(marker_container.google_object, 'click');
